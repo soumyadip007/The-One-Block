@@ -14,7 +14,7 @@ import core.DTNHost;
 import core.Message;
 import core.SimClock;
 import core.World;
-import util.CM;
+import util.Created;
 import util.WillReceive;
 
 /**
@@ -91,7 +91,7 @@ public class MessageCreateEvent extends MessageEvent {
 					System.out.println("Msg Receive time"+m.getReceiveTime());
 					
 					
-					CM<String, Integer, String,String> cm=new CM<String,Integer, String,String>();
+					Created<String, Integer, String,String> cm=new Created<String,Integer, String,String>();
 					cm.setKey(this.id);
 					cm.setValue(SimClock.getIntTime());
 					cm.setHost(from.name);
