@@ -16,8 +16,8 @@ import movement.MovementModel;
 import movement.Path;
 import routing.MessageRouter;
 import routing.util.RoutingInfo;
-import util.CM;
-import util.DM;
+import util.Created;
+import util.Delivered;
 import util.DP;
 import util.WillReceive;
 
@@ -40,8 +40,8 @@ public class DTNHost implements Comparable<DTNHost> {
 	private List<MessageListener> msgListeners;
 	private List<MovementListener> movListeners;
 	private List<NetworkInterface> net;
-	public List<CM> cm;		//creating m
-	public List<DM> dm;		//delivered m 
+	public List<Created> cm;		//creating m
+	public List<Delivered> dm;		//delivered m 
 	public List<DP> dp;		// delivery predictibility
 	public List<WillReceive> wr; //Receive MSG Queue
 	private ModuleCommunicationBus comBus;
@@ -71,8 +71,8 @@ public class DTNHost implements Comparable<DTNHost> {
 		this.address = getNextAddress();
 		this.name = groupId+address;
 		this.net = new ArrayList<NetworkInterface>();
-		this.cm=new ArrayList<CM>();   //cm
-		this.dm=new ArrayList<DM>();	//dm
+		this.cm=new ArrayList<Created>();   //cm
+		this.dm=new ArrayList<Delivered>();	//dm
 		this.dp=new ArrayList<DP>();	//dp
 		this.wr=new ArrayList<WillReceive>();
 		
@@ -514,7 +514,7 @@ public class DTNHost implements Comparable<DTNHost> {
 					System.out.println("Mother Host Name "+dtn.name);
 					System.out.println("Mother Host CM "+dtn.cm);
 					System.out.println("Mother Host DM "+dtn.dm);
-					DM<String, Integer,String,String> dm=new DM<String,Integer,String,String>();
+					Delivered<String, Integer,String,String> dm=new Delivered<String,Integer,String,String>();
 					dm.setKey(m.getId());
 					dm.setValue(SimClock.getIntTime());
 					dm.setHost(dtn.name);
