@@ -53,48 +53,14 @@ public class MessageRelayEvent extends MessageEvent {
 		case SENDING:
 		//	from.sendMessage(id, to);
 				System.out.println("SENDING");
-				if(from.name.contains("Cooperators") && to.name.contains("Cooperators"))
-				{
-					System.out.print("Sending :  "+from.name+"-->"+to.name);
-				
-				}
-				else if(from.name.contains("Cooperators") && to.name.contains("Exploiters"))
-				{
-					System.out.print("Sending :  "+from.name+"-->"+to.name);
-					from.sendMessage(id, to);
-				}
-				else if(from.name.contains("Exploiters") && to.name.contains("Exploiters"))
-				{
-					System.out.print("Sending :  "+from.name+"-->"+to.name);
-					from.sendMessage(id, to);
-				}
+			
 				break;
 			
 		case TRANSFERRED:
 			
 	//		to.messageTransferred(id, from);
 			
-				System.out.println("TRANSFERRED");
-				if( from.name.contains("Cooperators") && to.name.contains("Cooperators"))
-				{
-					System.out.print("Tranferring :  "+from.name+"-->"+to.name);
 					to.messageTransferred(id, from);
-				}
-				else if(from.name.contains("Cooperators") && to.name.contains("Exploiters"))
-				{
-					System.out.print("Tranferring :  "+from.name+"-->"+to.name);
-					to.messageTransferred(id, from);
-				}
-				else if(from.name.contains("Isolators") )
-				{
-					System.out.print("Tranferring :  "+from.name+"-->"+to.name);
-					to.messageTransferred(id, from);
-				}
-				else if(from.name.contains("Exploiters") && to.name.contains("Exploiters"))
-				{
-					System.out.print("Tranferring :  "+from.name+"-->"+to.name);
-					to.messageTransferred(id, from);
-				}
 				break;
 			
 		case ABORTED:
@@ -102,16 +68,8 @@ public class MessageRelayEvent extends MessageEvent {
 			
 		//	 to.messageAborted(id, from, -1);
 				System.out.println("ABORTED");
-				if(from.name.contains("Exploiters") && to.name.contains("Cooperators"))
-				{
-					System.out.print("Aborting :  "+from.name+"-->"+to.name);
 					 to.messageAborted(id, from, -1);
-				}
-				else if(from.name.contains("Exploiters") && to.name.contains("Isolators"))
-				{
-					System.out.print("Aborting :  "+from.name+"-->"+to.name);
-					 to.messageAborted(id, from, -1);
-				}
+				
 				break;
 		
 		default:
