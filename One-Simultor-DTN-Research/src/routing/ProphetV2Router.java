@@ -245,37 +245,12 @@ public class ProphetV2Router extends ActiveRouter {
 			double pNew = pForHost * e.getValue() * beta;
 			if(pNew>pOld)
 			{
-				if(host.met_count.containsKey(e.getKey()))
-				{
-					int c=host.met_count.get(e.getKey());
-					c++;
-					host.met_count.put(e.getKey(),c);
-				}
-				else
-				{
-				 	host.met_count.put(e.getKey(),1);
-				}
-				
-				if(host.predict.containsKey(e.getKey()))
-				{
-					host.predict.put(e.getKey(),pNew);
-				}
-				else
-				{
-					host.predict.put(e.getKey(),pNew);
-				}
 				
 				
 				
 				
-				
-				
-		//		System.out.println("Key:"+e.getKey());
-		//		System.out.println("Old Transitive value for "+e.getKey()+" : "+pOld);
-			//	System.out.println("New Transitive value for HOST: "+e.getKey()+" : "+pNew);
 
 				preds.put(e.getKey(), pNew);
-			//	System.out.println("Adding");
 				
 			}
 		}
