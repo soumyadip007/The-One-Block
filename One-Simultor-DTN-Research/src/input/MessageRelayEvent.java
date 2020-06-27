@@ -68,7 +68,7 @@ public class MessageRelayEvent extends MessageEvent {
 			
 		//	 to.messageAborted(id, from, -1);
 				System.out.println("ABORTED");
-					 to.messageAborted(id, from, -1);
+				to.messageAborted(id, from, -1);
 				
 				break;
 		
