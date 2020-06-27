@@ -46,7 +46,6 @@ public class DTNHost implements Comparable<DTNHost> {
 	public List<WillReceive> wr; //Receive MSG Queue
 	private ModuleCommunicationBus comBus;
 	public HashMap<DTNHost, Integer> met_count;
-	public HashMap<DTNHost, Double> predict;
 	public boolean not_malicious;
 	
 	static {
@@ -82,7 +81,6 @@ public class DTNHost implements Comparable<DTNHost> {
 		
 		// Initially making the fields True and False
 		
-		this.predict=new HashMap<DTNHost,Double>();
 		for (NetworkInterface i : interf) {
 			NetworkInterface ni = i.replicate();
 			ni.setHost(this);
