@@ -79,7 +79,7 @@ public class WillReceive<MsgId,Time,From,To,Received>  {
 
 	@Override
 	public String toString() {
-		return "WillReceive [key=" + key + ", value=" + value + ", host=" + host + ", to=" + to + ", rev=" + rev + "]\n";
+		return "WillReceive-Message [key=" + key + ", value=" + value + ", host=" + host + ", to=" + to + ", rev=" + rev + "]\n";
 	}
 
 
