@@ -96,15 +96,17 @@ public class MessageCreateEvent extends MessageEvent {
 					cm.setValue(SimClock.getIntTime());
 					cm.setHost(from.name);
 					cm.setTo(to.name);
-					//System.out.println(cm);
 					
 					from.cm.add(cm);
+					
+					
 					WillReceive<String, Integer, String,String,Boolean> wr=new WillReceive<String,Integer, String,String,Boolean>();
 					wr.setKey(this.id);
 					wr.setValue(SimClock.getIntTime());
 					wr.setHost(String.valueOf(from.address));
 					wr.setTo(to.name);
 					wr.setRev(false);
+					
 					to.wr.add(wr);
 					
 
