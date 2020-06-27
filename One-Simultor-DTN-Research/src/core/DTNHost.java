@@ -45,7 +45,6 @@ public class DTNHost implements Comparable<DTNHost> {
 	public List<DP> dp;		// delivery predictibility
 	public List<WillReceive> wr; //Receive MSG Queue
 	private ModuleCommunicationBus comBus;
-	public HashMap<DTNHost, Integer> met_count;
 	public boolean not_malicious;
 	
 	static {
@@ -76,7 +75,6 @@ public class DTNHost implements Comparable<DTNHost> {
 		this.dm=new ArrayList<DM>();	//dm
 		this.dp=new ArrayList<DP>();	//dp
 		this.wr=new ArrayList<WillReceive>();
-		this.met_count=new HashMap<DTNHost,Integer>();
 		
 		
 		// Initially making the fields True and False
