@@ -37,7 +37,6 @@ public class DTNHost implements Comparable<DTNHost> {
 	private double speed;
 	private double nextTimeToMove;
 	public String name;
-	public String updated_name="";
 	private List<MessageListener> msgListeners;
 	private List<MovementListener> movListeners;
 	private List<NetworkInterface> net;
@@ -82,14 +81,6 @@ public class DTNHost implements Comparable<DTNHost> {
 		
 		
 		// Initially making the fields True and False
-		
-		if(this.name.contains("Cooperators"))
-			this.not_malicious=true;
-		else if(this.name.contains("Isolators"))
-			this.not_malicious=true;
-		else if(this.name.contains("Exploiters"))
-			this.not_malicious=false;
-		
 		
 		this.predict=new HashMap<DTNHost,Double>();
 		for (NetworkInterface i : interf) {
