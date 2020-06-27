@@ -6,7 +6,7 @@ package util;
 /**
  * A generic key-value tuple 
  */
-public class CM<MsgId,Time,From,To>  {
+public class Created<MsgId,Time,From,To>  {
 	private MsgId key;
 	private Time value;
 	private From host;
@@ -16,14 +16,14 @@ public class CM<MsgId,Time,From,To>  {
 	 * @param key The key of the tuple
 	 * @param value The value of the tuple
 	 */
-	public CM(MsgId key,Time value,From f,To t) {
+	public Created(MsgId key,Time value,From f,To t) {
 		this.key = key;
 		this.value = value;
 		this.host=f;
 		this.to=t;
 	}
 
-	public CM() {
+	public Created() {
 		
 	}
 
@@ -69,7 +69,7 @@ public class CM<MsgId,Time,From,To>  {
 
 	@Override
 	public String toString() {
-		return "CM [Msg key=" + key + ",Time value=" + value + ", host=" + host + ", to=" + to + "]\n\n";
+		return "Created-Message [Msg key=" + key + ",Time value=" + value + ", host=" + host + ", to=" + to + "]\n\n";
 	}
 
 
