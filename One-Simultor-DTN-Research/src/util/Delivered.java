@@ -6,7 +6,7 @@ package util;
 /**
  * A generic key-value tuple 
  */
-public class DM<MsgId,Time,From,To>  {
+public class Delivered<MsgId,Time,From,To>  {
 	private MsgId key;
 	private Time value;
 	private From host;
@@ -16,14 +16,14 @@ public class DM<MsgId,Time,From,To>  {
 	 * @param key The key of the tuple
 	 * @param value The value of the tuple
 	 */
-	public DM(MsgId key,Time value,From f,To t) {
+	public Delivered(MsgId key,Time value,From f,To t) {
 		this.key = key;
 		this.value = value;
 		this.host=f;
 		this.to=t;
 	}
 
-	public DM() {
+	public Delivered() {
 		
 	}
 
@@ -69,7 +69,7 @@ public class DM<MsgId,Time,From,To>  {
 
 	@Override
 	public String toString() {
-		return "DM [Msg key=" + key + ",Time value=" + value + ", host=" + host + ", to=" + to + "]\n\n";
+		return "Deliverd-Message [Msg key=" + key + ",Time value=" + value + ", host=" + host + ", to=" + to + "]\n\n";
 	}
 
 
