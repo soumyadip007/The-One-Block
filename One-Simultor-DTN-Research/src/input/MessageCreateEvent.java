@@ -75,7 +75,7 @@ public class MessageCreateEvent extends MessageEvent {
 				
 					System.out.print("Form------->"+from);
 					
-					System.out.println("    To------>"+to);
+					System.out.println("To------>"+to);
 					
 					System.out.println("---------------------------------------------------");
 						
@@ -107,12 +107,12 @@ public class MessageCreateEvent extends MessageEvent {
 					wr.setRev(false);
 					to.wr.add(wr);
 					
-					
-					System.out.println("DTNHost From -> DM List"+from.dm);
-					System.out.println("DTNHost From -> CM List"+from.cm);
+
+					System.out.println("DTNHost From -> Created-Message List"+from.cm);
+					System.out.println("DTNHost From -> Deliverd-Message List"+from.dm);
 					System.out.println("DTNHost From -> Will Receive "+from.wr+"\n");
-					System.out.println("DTNHost To -> DM List"+to.dm);
-					System.out.println("DTNHost To -> CM List"+to.cm);
+					System.out.println("DTNHost To ->  Created-Message List"+to.cm);
+					System.out.println("DTNHost To -> Deliverd-Message List"+to.dm);
 					System.out.println("DTNHost To -> Will Receive "+to.wr+"\n");
 					
 
