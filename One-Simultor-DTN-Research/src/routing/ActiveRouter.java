@@ -193,66 +193,8 @@ public abstract class ActiveRouter extends MessageRouter {
 			
 			
 			
-			
-//			System.out.println("MSG: From->"+m.from+" To->"+m.to);
-//			System.out.println(con);
-//			System.out.println(getHost());
-//
-//			System.out.println("Connection to Current To: "+con.fromNode.met_count.get(con.toNode));				
-//			System.out.println("Connection to MSG To: "+con.fromNode.met_count.get(m.to));	
-
-//			if(con.fromNode.met_count.get(m.to)==null && con.fromNode.met_count.get(con.toNode)==null)
-//			{
-//				
-//			}
-//			else if(con.fromNode.met_count.containsKey(key) || con.fromNode.met_count.get(con.toNode)==null)
-//			{
-//				addToSendingConnections(con);
-//			}
-//			else if(con.fromNode.met_count.get(m.to)>con.fromNode.met_count.get(con.toNode))
-//			{
-//				addToSendingConnections(con);
-//			}
-			
-			
-			
-			if(SimClock.getIntTime()>=6000 ){
-				if(con.fromNode.predict.containsKey(m.to) && con.toNode.predict.containsKey(m.to))
-				{
-					 if(con.toNode.predict.get(m.to)>con.fromNode.predict.get(m.to))
-					{
-//						addToSendingConnections(con);
-//					
-//						System.out.println("\n\n\nMSG: From->"+m.from+" To->"+m.to);
-//						System.out.println(con);
-//						System.out.println(getHost());
-//	
-//						System.out.println("Connection to Current To: "+con.toNode.met_count.get(m.to));				
-//						System.out.println("Connection to MSG To: "+con.fromNode.met_count.get(m.to));
-					
-					}
-					con.toNode.not_malicious=true;  //Converting into not maicious
-				}
-				else if(con.fromNode.predict.containsKey(con.toNode))
-				{
-					
-//					System.out.println("\n\n\nMSG: From->"+m.from+" To->"+m.to);
-//					System.out.println(con);
-//					System.out.println(getHost());
-//	
-//					
-//					System.out.println("Connection to Current To: "+con.toNode.met_count.get(m.to) );				
-//					System.out.println("Connection to MSG To: "+con.fromNode.met_count.get(m.to));
-				//	addToSendingConnections(con);
-				// 	con.toNode.not_malicious=true;
-				}
-				addToSendingConnections(con);
-				
-			}
-			else
-			{
 				addToSendingConnections(con);	
-			}
+			
 		
 			
 			//
