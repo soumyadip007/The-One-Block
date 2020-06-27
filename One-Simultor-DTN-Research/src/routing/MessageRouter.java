@@ -235,11 +235,6 @@ public abstract class MessageRouter {
 	 */
 	protected boolean isDeliveredMessage(Message m) {
 		if(host.cm.size()>0 && this.deliveredMessages.containsKey(m.getId())){
-//System.out.print("----------------isDeliveredMessage--------------");
-//			System.out.println("Messege "+messages);
-//			System.out.println(host.cm);
-//			System.out.println("Deliverd Messege "+deliveredMessages+"\n\n");
-//			
 		}
 		return (this.deliveredMessages.containsKey(m.getId()));
 	}
