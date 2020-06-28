@@ -1,7 +1,7 @@
 package util;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class MessageRecord {
 
@@ -12,7 +12,7 @@ public class MessageRecord {
 	
 	public boolean recieved;
 	
-	public List<String> carry=new ArrayList<>();
+	public Set<String> carry=new TreeSet<>();
 	
 	public MessageRecord() {
 		super();
