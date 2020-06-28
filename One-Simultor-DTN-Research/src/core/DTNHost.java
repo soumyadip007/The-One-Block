@@ -16,9 +16,10 @@ import movement.MovementModel;
 import movement.Path;
 import routing.MessageRouter;
 import routing.util.RoutingInfo;
+import util.Carry;
 import util.Created;
-import util.Delivered;
 import util.DP;
+import util.Delivered;
 import util.WillReceive;
 
 /**
@@ -44,6 +45,8 @@ public class DTNHost implements Comparable<DTNHost> {
 	public List<Delivered> dm;		//delivered m 
 	public List<DP> dp;		// delivery predictibility
 	public List<WillReceive> wr; //Receive MSG Queue
+	public HashMap<String, Carry> cr;
+	//public List<Carry> cr; //Receive MSG Queue
 	private ModuleCommunicationBus comBus;
 	public boolean not_malicious;
 	
@@ -75,6 +78,7 @@ public class DTNHost implements Comparable<DTNHost> {
 		this.dm=new ArrayList<Delivered>();	//dm
 		this.dp=new ArrayList<DP>();	//dp
 		this.wr=new ArrayList<WillReceive>();
+		this.cr=new HashMap<String,Carry>();
 		
 		
 		// Initially making the fields True and False
@@ -475,6 +479,7 @@ public class DTNHost implements Comparable<DTNHost> {
 		int retVal = this.router.receiveMessage(m, from);
 
 		
+		
 	//	System.out.println(from);
 		
 		if (retVal == MessageRouter.RCV_OK ) {
@@ -484,7 +489,14 @@ public class DTNHost implements Comparable<DTNHost> {
 			//---------------Checking By @Soumyadip---------------
 			
 		
-			
+
+//			if(from.name.contains("Minors")) {
+//
+//				System.out.println(from);
+//				System.out.println(from.dm);
+//				System.out.println(from.cm);
+//				System.out.println(from.wr);
+//			}
 			String msg=m.getId();
 			for(WillReceive w:wr)
 			{
@@ -499,6 +511,8 @@ public class DTNHost implements Comparable<DTNHost> {
 					System.out.println("This host WR "+this.wr);
 					System.out.println("MSG Id "+m.getId());
 					System.out.println("Gettig this MSG From(Using Transitivity) "+from.name);
+
+					System.out.println("Gettig this MSG From(Using Transitivity) Carry List "+from.cr);
 					int index=wr.indexOf(w);
 					w.setRev(true);
 					wr.set(index, w);
@@ -528,6 +542,7 @@ public class DTNHost implements Comparable<DTNHost> {
 			
 			
 
+			
 		
 
 		}
