@@ -51,7 +51,6 @@ public class DTNHost implements Comparable<DTNHost> {
 	
 	
 	
-	
 	static {
 		DTNSim.registerForReset(DTNHost.class.getCanonicalName());
 		reset();
