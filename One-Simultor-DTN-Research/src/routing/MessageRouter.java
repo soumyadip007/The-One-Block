@@ -21,10 +21,8 @@ import core.Settings;
 import core.SettingsError;
 import core.SimClock;
 import core.SimError;
-import core.World;
-import input.MessageCreateEvent;
 import routing.util.RoutingInfo;
-import util.Delivered;
+import util.Carry;
 import util.Tuple;
 
 /**
@@ -322,6 +320,7 @@ public abstract class MessageRouter {
 
 		m2 = m.replicate();	// send a replicate of the message
 		to.receiveMessage(m2, this.host);
+	
 		
 //		DM<String, Integer> dm=new DM<String,Integer>();
 //		dm.setKey(id);
@@ -358,6 +357,26 @@ public abstract class MessageRouter {
 
 		for (MessageListener ml : this.mListeners) {
 			ml.messageTransferStarted(newMessage, from, getHost());
+
+			//	System.out.println(newMessage);
+		
+//			System.out.println("----------------------------From--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+//			System.out.println(from);
+//			System.out.println(from.dm);
+//			System.out.println(from.cm);
+//			System.out.println(from.wr);
+//			System.out.println("----------------------------HOST--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+//			System.out.println(host);
+//			System.out.println(host.dm);
+//			System.out.println(host.cm);
+//			System.out.println(host.wr);
+			
+			Carry<String, Integer> cm=new Carry<String,Integer>();
+			cm.setKey(m.getId());
+			cm.setValue(SimClock.getIntTime());
+
+			from.cr.put(m.getId(),cm);
+			host.cr.put(m.getId(),cm);
 		}
 
 		return RCV_OK; // superclass always accepts messages
