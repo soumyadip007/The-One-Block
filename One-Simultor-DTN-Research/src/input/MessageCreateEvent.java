@@ -112,11 +112,13 @@ public class MessageCreateEvent extends MessageEvent {
 
 					System.out.println("DTNHost From -> Created-Message List"+from.cm);
 					System.out.println("DTNHost From -> Deliverd-Message List"+from.dm);
-					System.out.println("DTNHost From -> Will Receive "+from.wr+"\n");
+					System.out.println("DTNHost From -> Will Receive "+from.wr);
+					System.out.println("DTNHost Form -> Carry-Message List"+from.cr+"\n");
+					
 					System.out.println("DTNHost To ->  Created-Message List"+to.cm);
 					System.out.println("DTNHost To -> Deliverd-Message List"+to.dm);
-					System.out.println("DTNHost To -> Will Receive "+to.wr+"\n");
-					
+					System.out.println("DTNHost To -> Will Receive "+to.wr);
+					System.out.println("DTNHost To -> Carry-Message List"+to.cr+"\n");
 
 	
 		
