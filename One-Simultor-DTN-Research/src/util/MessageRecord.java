@@ -1,5 +1,6 @@
 package util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MessageRecord {
@@ -11,19 +12,24 @@ public class MessageRecord {
 	
 	public boolean recieved;
 	
-	public List<String> carry;
+	public List<String> carry=new ArrayList<>();
+	
+	public MessageRecord() {
+		super();
+	}
 
-	public MessageRecord(String from, String to, boolean recieved, List<String> carry) {
+	@Override
+	public String toString() {
+		return "MessageRecord [from=" + from + ", to=" + to + ", recieved=" + recieved + ", carry=" + carry + "]\n";
+	}
+
+	public MessageRecord(String from, String to, boolean recieved) {
 		super();
 		this.from = from;
 		this.to = to;
 		this.recieved = recieved;
-		this.carry = carry;
 	}
-
-	public MessageRecord() {
-		super();
-	}
+	
 	
 	
 }
