@@ -15,6 +15,7 @@ import core.Message;
 import core.SimClock;
 import core.World;
 import util.Created;
+import util.MessageRecord;
 import util.WillReceive;
 
 /**
@@ -113,16 +114,18 @@ public class MessageCreateEvent extends MessageEvent {
 					System.out.println("DTNHost From -> Created-Message List"+from.cm);
 					System.out.println("DTNHost From -> Deliverd-Message List"+from.dm);
 					System.out.println("DTNHost From -> Will Receive "+from.wr);
-					System.out.println("DTNHost Form -> Carry-Message List"+from.cr+"\n");
+				//	System.out.println("DTNHost Form -> Carry-Message List"+from.cr+"\n");
 					
 					System.out.println("DTNHost To ->  Created-Message List"+to.cm);
 					System.out.println("DTNHost To -> Deliverd-Message List"+to.dm);
 					System.out.println("DTNHost To -> Will Receive "+to.wr);
-					System.out.println("DTNHost To -> Carry-Message List"+to.cr+"\n");
+				//	System.out.println("DTNHost To -> Carry-Message List"+to.cr+"\n");
 
+					
 	
-		
-	
+					DTNHost.mr.put(this.id, new MessageRecord(from.name,to.name,false));
+
+					System.out.println(DTNHost.mr);
 	
 	}
 
