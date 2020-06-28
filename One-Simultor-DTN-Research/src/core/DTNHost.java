@@ -540,6 +540,9 @@ public class DTNHost implements Comparable<DTNHost> {
 					System.out.println("Mother Host Update DM "+dtn.dm);
 					
 					System.out.println("--------------DTN Host End--------------------");
+					
+					
+					
 				}
 			}
 			
