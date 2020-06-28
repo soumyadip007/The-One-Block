@@ -33,7 +33,7 @@ highspeedInterface.transmitSpeed = 10M
 highspeedInterface.transmitRange = 200
 
 # Define 6 different node groups
-Scenario.nrofHostGroups = 3
+Scenario.nrofHostGroups = 2
 
 ## Group-specific settings:
 # groupID : Group's identifier. Used as the prefix of host names
@@ -56,7 +56,7 @@ Scenario.nrofHostGroups = 3
 
 
 # Common settings for all groups
-Group.movementModel = RandomDirection
+Group.movementModel = ShortestPathMapBasedMovement
 Group.router = ProphetV2Router
 
 
@@ -73,18 +73,18 @@ Group.speed = 0.5, 1.5
 # Message TTL of 300 minutes (5 hours) Time to lv
 Group.msgTtl = 300
 
-Group.nrofHosts = 45
 
 # group1 (pedestrians) specific settings
 
 # All are pedestrians for Discuss paper
 
-Group1.groupID = Cooperators
+Group1.groupID = Nodes
 Group1.speed = 7, 10
-Group2.groupID = Exploiters
-Group2.speed = 7, 10
-Group3.groupID = Isolators
-Group3.speed = 7, 10
+Group1.nrofHosts = 132
+
+Group2.groupID = Minors
+Group2.speed = 100,300
+Group2.nrofHosts = 3
 
 ## Message creation parameters
 # How many event generators
