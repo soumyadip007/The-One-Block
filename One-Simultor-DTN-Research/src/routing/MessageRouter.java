@@ -23,6 +23,7 @@ import core.SimClock;
 import core.SimError;
 import routing.util.RoutingInfo;
 import util.Carry;
+import util.MessageRecord;
 import util.Tuple;
 
 /**
@@ -371,12 +372,16 @@ public abstract class MessageRouter {
 //			System.out.println(host.cm);
 //			System.out.println(host.wr);
 			
-			Carry<String, Integer> cm=new Carry<String,Integer>();
+			Carry<String, Integer> cm=new Carry<>();
 			cm.setKey(m.getId());
 			cm.setValue(SimClock.getIntTime());
 
 			from.cr.put(m.getId(),cm);
 			host.cr.put(m.getId(),cm);
+			
+			MessageRecord msg_team= DTNHost.mr.get(m.getId());
+			msg_team.carry.add(from.name);
+			msg_team.carry.add(host.name);
 		}
 
 		return RCV_OK; // superclass always accepts messages
