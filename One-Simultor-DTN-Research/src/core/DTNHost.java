@@ -49,6 +49,9 @@ public class DTNHost implements Comparable<DTNHost> {
 	//public List<Carry> cr; //Receive MSG Queue
 	private ModuleCommunicationBus comBus;
 	
+	
+	
+	
 	static {
 		DTNSim.registerForReset(DTNHost.class.getCanonicalName());
 		reset();
