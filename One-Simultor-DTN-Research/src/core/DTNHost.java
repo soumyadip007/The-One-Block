@@ -20,6 +20,7 @@ import util.Carry;
 import util.Created;
 import util.DP;
 import util.Delivered;
+import util.MessageRecord;
 import util.WillReceive;
 
 /**
@@ -50,6 +51,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	private ModuleCommunicationBus comBus;
 	
 	
+	public static HashMap<String,MessageRecord> mr=new HashMap<String, MessageRecord>();
 	
 	static {
 		DTNSim.registerForReset(DTNHost.class.getCanonicalName());
