@@ -48,7 +48,6 @@ public class DTNHost implements Comparable<DTNHost> {
 	public HashMap<String, Carry> cr;
 	//public List<Carry> cr; //Receive MSG Queue
 	private ModuleCommunicationBus comBus;
-	public boolean not_malicious;
 	
 	static {
 		DTNSim.registerForReset(DTNHost.class.getCanonicalName());
