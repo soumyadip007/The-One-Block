@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 import input.MessageCreateEvent;
 import movement.MovementModel;
@@ -51,7 +52,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	private ModuleCommunicationBus comBus;
 	
 	
-	public static HashMap<String,MessageRecord> mr=new HashMap<String, MessageRecord>();
+	public static TreeMap<String,MessageRecord> mr=new TreeMap<>();
 	
 	static {
 		DTNSim.registerForReset(DTNHost.class.getCanonicalName());
@@ -515,7 +516,7 @@ public class DTNHost implements Comparable<DTNHost> {
 					System.out.println("MSG Id "+m.getId());
 					System.out.println("Gettig this MSG From(Using Transitivity) "+from.name);
 
-					System.out.println("Gettig this MSG From(Using Transitivity) Carry List "+from.cr);
+					//System.out.println("Gettig this MSG From(Using Transitivity) Carry List "+from.cr);
 					int index=wr.indexOf(w);
 					w.setRev(true);
 					wr.set(index, w);
@@ -540,7 +541,6 @@ public class DTNHost implements Comparable<DTNHost> {
 					System.out.println("Mother Host Update DM "+dtn.dm);
 					
 					System.out.println("--------------DTN Host End--------------------");
-					
 					
 					
 				}
