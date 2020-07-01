@@ -10,13 +10,13 @@ import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import blockchain.Created;
+import blockchain.MessageRecord;
+import blockchain.WillReceive;
 import core.DTNHost;
 import core.Message;
 import core.SimClock;
 import core.World;
-import util.Created;
-import util.MessageRecord;
-import util.WillReceive;
 
 /**
  * External event for creating a message.
