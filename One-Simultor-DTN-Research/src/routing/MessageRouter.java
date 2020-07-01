@@ -12,8 +12,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import blockchain.Carry;
-import blockchain.MessageRecord;
+import blockchain.util.Carry;
+import blockchain.util.MessageRecord;
 import core.Application;
 import core.Connection;
 import core.DTNHost;
