@@ -12,6 +12,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import blockchain.Carry;
+import blockchain.MessageRecord;
 import core.Application;
 import core.Connection;
 import core.DTNHost;
@@ -22,8 +24,6 @@ import core.SettingsError;
 import core.SimClock;
 import core.SimError;
 import routing.util.RoutingInfo;
-import util.Carry;
-import util.MessageRecord;
 import util.Tuple;
 
 /**
