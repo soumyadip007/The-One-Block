@@ -9,6 +9,7 @@ import static core.Constants.DEBUG;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -50,7 +51,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	public HashMap<String, Carry> cr;
 	//public List<Carry> cr; //Receive MSG Queue
 	private ModuleCommunicationBus comBus;
-	
+	public int gas=1000;
 	
 	public static TreeMap<String,MessageRecord> mr=new TreeMap<>();
 	
@@ -532,6 +533,7 @@ public class DTNHost implements Comparable<DTNHost> {
 					System.out.println("Mother Host Name "+dtn.name);
 					System.out.println("Mother Host CM "+dtn.cm);
 					System.out.println("Mother Host DM "+dtn.dm);
+					System.out.println("Mother Host GAS "+dtn.gas);
 					Delivered<String, Integer,String,String> dm=new Delivered<String,Integer,String,String>();
 					dm.setKey(m.getId());
 					dm.setValue(SimClock.getIntTime());
@@ -539,7 +541,26 @@ public class DTNHost implements Comparable<DTNHost> {
 					dm.setTo(this.name); //Same as the host of create 
 					dtn.dm.add(dm);
 					System.out.println("Mother Host Update DM "+dtn.dm);
+			
+					MessageRecord msg_team= DTNHost.mr.get(m.getId());
+					msg_team.recieved=true;
+					DTNHost.mr.put(m.getId(),msg_team);
+
+					System.out.println(msg_team);
 					
+					DTNHost form = world.getNodeByAddress(Integer.parseInt(msg_team.from));
+					form.gas-=msg_team.carry.size();
+
+			 		 System.out.println("Transaction GAS Debited to "+form.name+" Current Gas "+form.gas);
+			 		 
+					Iterator<String> it =  msg_team.carry.iterator();
+					 
+				    while(it.hasNext()){
+				    	 DTNHost temp = world.getNodeByAddress(Integer.parseInt(it.next()));
+				 		 temp.gas+=1;
+				 		 System.out.println("Transaction 1 GAS to "+temp.name+" Current Gas "+temp.gas);
+				     }
+				     
 					System.out.println("--------------DTN Host End--------------------");
 					
 					

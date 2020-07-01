@@ -380,8 +380,12 @@ public abstract class MessageRouter {
 			host.cr.put(m.getId(),cm);
 			
 			MessageRecord msg_team= DTNHost.mr.get(m.getId());
-			msg_team.carry.add(from.name);
-			msg_team.carry.add(host.name);
+			
+			if(msg_team.recieved==false) {
+			msg_team.carry.add(from.address+"");
+			msg_team.carry.add(host.address+"");
+			DTNHost.mr.put(m.getId(),msg_team);
+			}
 		}
 
 		return RCV_OK; // superclass always accepts messages
