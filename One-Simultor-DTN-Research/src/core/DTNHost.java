@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 
+import blockchain.Carry;
+import blockchain.Created;
+import blockchain.DP;
+import blockchain.Delivered;
+import blockchain.MessageRecord;
+import blockchain.WillReceive;
 import input.MessageCreateEvent;
 import movement.MovementModel;
 import movement.Path;
 import routing.MessageRouter;
 import routing.util.RoutingInfo;
-import util.Carry;
-import util.Created;
-import util.DP;
-import util.Delivered;
-import util.MessageRecord;
-import util.WillReceive;
 
 /**
  * A DTN capable host.
