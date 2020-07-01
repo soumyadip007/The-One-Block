@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 
+import blockchain.core.TransactionBlock;
 import blockchain.util.Carry;
 import blockchain.util.Created;
 import blockchain.util.DP;
@@ -54,6 +55,7 @@ public class DTNHost implements Comparable<DTNHost> {
 	public int gas=1000;
 	
 	public static TreeMap<String,MessageRecord> mr=new TreeMap<>();
+	public static List<TransactionBlock> tblock=new ArrayList<>();
 	
 	static {
 		DTNSim.registerForReset(DTNHost.class.getCanonicalName());
