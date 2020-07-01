@@ -55,6 +55,8 @@ public class DTNHost implements Comparable<DTNHost> {
 	public int gas=1000;
 	
 	public static TreeMap<String,MessageRecord> mr=new TreeMap<>();
+	
+	public static String TransactionLastHash="ff750d98ab718a2b310be1b034fcb8cc0c7f00a5a";
 	public static List<TransactionBlock> tblock=new ArrayList<>();
 	
 	static {
@@ -551,9 +553,9 @@ public class DTNHost implements Comparable<DTNHost> {
 					System.out.println(msg_team);
 					
 					DTNHost form = world.getNodeByAddress(Integer.parseInt(msg_team.from));
-					form.gas-=msg_team.carry.size();
+					//form.gas-=msg_team.carry.size();
 
-			 		 System.out.println("Transaction GAS Debited to "+form.name+" Current Gas "+form.gas);
+			 		// System.out.println("Transaction GAS Debited to "+form.name+" Current Gas "+form.gas);
 			 		 
 					Iterator<String> it =  msg_team.carry.iterator();
 					 
@@ -561,7 +563,27 @@ public class DTNHost implements Comparable<DTNHost> {
 				    	 DTNHost temp = world.getNodeByAddress(Integer.parseInt(it.next()));
 				 		 temp.gas+=1;
 				 		 System.out.println("Transaction 1 GAS to "+temp.name+" Current Gas "+temp.gas);
-				     }
+				 		form.gas-=1;
+				 		 
+				 		 
+						 System.out.println();
+						 System.out.println();
+						 
+				 		 TransactionBlock tr=new TransactionBlock(TransactionLastHash, m.getId(), "Node"+form.name,
+				 				 "Node"+temp.name, " Gas "+form.gas,
+				 				" Gas "+temp.gas,
+				 				 
+				 				 ""+gas,				 
+				 				 ""+SimClock.getIntTime());
+				 		 System.out.println(tr);
+						 System.out.println();
+						 System.out.println();
+				    }
+				    
+				    
+				    
+				    
+				    
 				     
 					System.out.println("--------------DTN Host End--------------------");
 					
