@@ -1,7 +1,7 @@
 /*
  * author @Soumyadip
  */
-package blockchain;
+package blockchain.util;
 
 /**
  * A generic key-value tuple 
