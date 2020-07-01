@@ -10,9 +10,9 @@ import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import blockchain.Created;
-import blockchain.MessageRecord;
-import blockchain.WillReceive;
+import blockchain.util.Created;
+import blockchain.util.MessageRecord;
+import blockchain.util.WillReceive;
 import core.DTNHost;
 import core.Message;
 import core.SimClock;
