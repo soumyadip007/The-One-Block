@@ -59,10 +59,10 @@ public class TransactionBlock {
 
 	@Override
 	public String toString() {
-		return "TransactionBlock [previousHash=" + previousHash + ", transactionId=" + transactionId + ", messageId="
+		return "Minors-TransactionBlock [previousHash=" + previousHash + ", transactionId=" + transactionId + ", messageId="
 				+ messageId + ", fromWallet=" + fromWallet + ", toWallet=" + toWallet + ", fromWalletCurrentGas="
 				+ fromWalletCurrentGas + ", toWalletCurrentGas=" + toWalletCurrentGas + ", gas=" + gas + ", time="
-				+ time + "]";
+				+ time + "]\n";
 	}
 
 
