@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 
+import blockchain.core.Block;
 import blockchain.core.TransactionBlock;
 import blockchain.util.Carry;
 import blockchain.util.Created;
@@ -56,8 +57,10 @@ public class DTNHost implements Comparable<DTNHost> {
 	
 	public static TreeMap<String,MessageRecord> mr=new TreeMap<>();
 	
+
+	public static String BlockLastHash="e7c9083373d5a9904da6b898d748b23de244cae5";
 	public static String TransactionLastHash="ff750d98ab718a2b310be1b034fcb8cc0c7f00a5a";
-	public static List<TransactionBlock> tblock=new ArrayList<>();
+	public static List<Block> block=new ArrayList<>();
 	
 	static {
 		DTNSim.registerForReset(DTNHost.class.getCanonicalName());
@@ -553,12 +556,17 @@ public class DTNHost implements Comparable<DTNHost> {
 					System.out.println(msg_team);
 					
 					DTNHost form = world.getNodeByAddress(Integer.parseInt(msg_team.from));
+					DTNHost to= world.getNodeByAddress(Integer.parseInt(msg_team.to));
+					
 					//form.gas-=msg_team.carry.size();
 
 			 		// System.out.println("Transaction GAS Debited to "+form.name+" Current Gas "+form.gas);
 			 		 
 					Iterator<String> it =  msg_team.carry.iterator();
 					 
+					List<TransactionBlock> tblock=new ArrayList<>();
+					
+					
 				    while(it.hasNext()){
 				    	 DTNHost temp = world.getNodeByAddress(Integer.parseInt(it.next()));
 				 		 temp.gas+=1;
@@ -567,24 +575,27 @@ public class DTNHost implements Comparable<DTNHost> {
 				 		 
 				 		 
 						 System.out.println();
-						 System.out.println();
 						 
 				 		 TransactionBlock tr=new TransactionBlock(TransactionLastHash, m.getId(), "Node"+form.name,
-				 				 "Node"+temp.name, " Gas "+form.gas,
-				 				" Gas "+temp.gas,
+				 				 "Node"+temp.name, ""+form.gas,
+				 				""+temp.gas,
 				 				 
-				 				 ""+gas,				 
+				 				 ""+1,				 
 				 				 ""+SimClock.getIntTime());
 				 		 System.out.println(tr);
-						 System.out.println();
-						 System.out.println();
+				 		 tblock.add(tr);
 				    }
 				    
-				    
-				    
-				    
-				    
-				     
+				    Block bk=new Block(this.BlockLastHash,  m.getId(), "Node"+m.from,  "Node"+m.to, ""+form.gas, ""+to.gas,  ""+SimClock.getIntTime(), tblock);
+				    block.add(bk);
+				    System.out.println();
+					 System.out.println(); System.out.println();
+					 System.out.println();
+				      System.out.println(bk);
+				      System.out.println();
+						 System.out.println();
+						 System.out.println("Final Blocks");
+						 System.out.println(block);
 					System.out.println("--------------DTN Host End--------------------");
 					
 					
