@@ -36,7 +36,7 @@ public class Carry<MsgId,Time>  {
 	}
 	@Override
 	public String toString() {
-		return "Carry [key=" + key + ", value=" + value + "]\n";
+		return "Carry [key=" + key + ", value=" + value + "]";
 	}
 	
 }
