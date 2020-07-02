@@ -60,7 +60,7 @@ public class Block {
 
 	@Override
 	public String toString() {
-		return "Block [BlockpreviousHash=" + previousHash + ", BlockTransactionId=" + transactionId + ", messageId=" + messageId
+		return "\n\nBlock [BlockpreviousHash=" + previousHash + ", BlockTransactionId=" + transactionId + ", messageId=" + messageId
 				+ ", fromWallet=" + fromWallet + ", toWallet=" + toWallet + ", fromWalletCurrentGas="
 				+ fromWalletCurrentGas + ", toWalletCurrentGas=" + toWalletCurrentGas + ", time=" + time
 				+ ",\n minorsTransaction=" + minorsTransaction + "]";
