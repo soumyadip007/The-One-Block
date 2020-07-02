@@ -62,7 +62,7 @@ public class TransactionBlock {
 		return "Minors-TransactionBlock [previousHash=" + previousHash + ", transactionId=" + transactionId + ", messageId="
 				+ messageId + ", fromWallet=" + fromWallet + ", toWallet=" + toWallet + ", fromWalletCurrentGas="
 				+ fromWalletCurrentGas + ", toWalletCurrentGas=" + toWalletCurrentGas + ", gas=" + gas + ", time="
-				+ time + "]\n";
+				+ time + "]\n\n";
 	}
 
 
